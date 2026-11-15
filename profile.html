@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" />
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav-left">
+                <a href="index.html">
+                    <h3>Foodie</h3>
+                </a>
+                <div id="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="menu.html">Menu</a>
+
+                    <div class="mobile-buttons">
+                        <a href="logIn.html"><button id="loginBtnBurgerMenu"
+                                class="login-btn">Login</button></a>
+                        <a href="signUp.html"><button id="signBtnBurgerMenu" class="signup-btn">Sign
+                                Up</button></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-right">
+                <p id="counterForBasket"></p>
+                <a href="basket.html"><i class="fa-solid fa-cart-shopping"></i></a>
+                <div class="register-buttons">
+                    <a href="logIn.html"><button id="logIn">Login</button></a>
+                    <a href="signUp.html"><button id="signUp">Sign Up</button></a>
+                </div>
+                <i id="faUser" class="fa-regular fa-user"></i>
+                <div class="dropdown">
+                    <p>Hello: <span id="userName"></span></p>
+                    <div class="profile-and-btn">
+                        <a href="">Profile</a>
+                        <button id="logout">Logout</button>
+                    </div>
+                </div>
+                <i class="fa-solid fa-bars burger"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div id="toast" class="profile">
+            <button class="toast-close" id="toastClose" type="button">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <i id="toastIcon" class="fa-solid fa-circle-exclamation toast-icon"></i>
+            <i id="toastSuccess" class="fa-solid fa-circle-check"></i>
+            <div class="toast-content">
+                <p class="toast-title" id="toastTitle"></p>
+                <p class="toast-text" id="toastText"></p>
+            </div>
+        </div>
+
+        <section>
+            <h1>Profile Settings</h1>
+            <div class="peronsInfons">
+                <button id="personaInfo">Personal Info</button>
+                <button id="changePassword">Change Password</button>
+                <button id="accountSetting">Account Settings</button>
+            </div>
+
+            <div class="containerForPersonalInformation">
+                <div class="first">
+                    <div class="top-container">
+                        <b>Personal Information</b>
+                        <p>Update your personal details</p>
+                    </div>
+
+                    <div class="imgUser">
+                        <div class="ball">
+                            <i class="fa-regular fa-user"></i>
+                        </div>
+                    </div>
+
+                    <div class="picture">
+                        <label for="pictureInput">Picture</label>
+                        <input id="pictureInput" type="text">
+                    </div>
+
+                    <div class="firstNameAndLastName">
+                        <div class="first">
+                            <label for="firstNameInput">First Name</label>
+                            <input id="firstNameInput" type="text">
+                        </div>
+
+                        <div class="last">
+                            <label for="lastNameInput">Last Name</label>
+                            <input id="lastNameInput" type="text">
+                        </div>
+                    </div>
+
+                    <div class="emailDiv">
+                        <label for="emailInput">Email</label>
+                        <input id="emailInput" type="text" readonly>
+                    </div>
+
+                    <div class="phoneNumberDiv">
+                        <label for="phoneNumberInput">Phone Number</label>
+                        <input id="phoneNumberInput" type="number">
+                    </div>
+
+                    <div class="addressDiv">
+                        <label for="addressInput">Address</label>
+                        <input id="addressInput" type="text">
+                    </div>
+
+                    <div class="ageDiv">
+                        <label for="ageInput">Age</label>
+                        <input id="ageInput" type="number">
+                    </div>
+
+                    <div class="saveChangesDiv">
+                        <button id="saveChanges">Save Changes</button>
+                    </div>
+                </div>
+
+
+                <!-- /////////////////////////////// -->
+
+                <div class="overlay">
+                    <div class="removeDiv">
+                        <div class="topRemove">
+                            <b>Are you absolutely sure?</b>
+                            <p>This action cannot be undone. This will permanently delete your account and remove your
+                                data from our servers.</p>
+                        </div>
+                        <div class="buttonsForRemoveAndCancel">
+                            <button id="cancel">Cancel</button>
+                            <button id="remove">Delete Account</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="second">
+                    <div class="topSecond">
+                        <h2>Account Settings</h2>
+                        <p>Manage your account</p>
+                    </div>
+
+                    <div class="control">
+                        <div class="deleteContainer">
+                            <h2>Danger Zone</h2>
+                            <p>Once you delete your account, there is no going back. Please be certain.</p>
+                            <button id="DeleteMyAccount">Delete My account</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- //////////////////////////////////////////////// -->
+
+                <div class="third">
+                    <div class="topThird">
+                        <h4>Change Password</h4>
+                        <p>Update your password</p>
+                    </div>
+
+                    <form action="">
+                        <div class="middleThird">
+                            <label for="currentPasswordInput">Current Passowrd</label>
+                            <input id="currentPasswordInput" type="password">
+                            <i id="faEyeFirst" class="fa-regular fa-eye"></i>
+                            <i id="faEyeSlashFirst" class="fa-regular fa-eye-slash"></i>
+
+                            <label for="newPasswordInput">newPassword</label>
+                            <input id="newPasswordInput" type="password">
+                            <i id="faEyeSecond" class="fa-regular fa-eye"></i>
+                            <i id="faEyeSlashSecond" class="fa-regular fa-eye-slash"></i>
+
+                            <label for="confirmNewPasssword">Confirm New Password</label>
+                            <input id="confirmNewPasssword" type="password">
+                        </div>
+
+                        <div class="rules-of-password">
+                            <p>• At least 8 characters</p>
+                            <p>• Uppercase and lowercase letters</p>
+                            <p>• At least one number</p>
+                            <p>• At least one special character</p>
+                        </div>
+
+                        <div class="errors">
+                            <p id="passwordErrors">error</p>
+                        </div>
+
+
+                        <div class="updatePassword">
+                            <button id="updatePasswordBtn">Update Password</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+
+    <section id="hero-bottom-section">
+        <div class="bottom-section-container">
+            <div class="first-div">
+                <b>Foodie</b>
+                <p>Delicious food delivered to your door</p>
+                <div class="icons">
+                    <i class="fa-brands fa-facebook-f"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                </div>
+            </div>
+            <div class="second-div">
+                <b>Contact</b>
+                <p>123 Food Street</p>
+                <p>City, State 12345</p>
+                <p>Phone: (555) 123-4567</p>
+                <p>Mon-Sun: 10AM - 10PM</p>
+            </div>
+            <div class="third-div">
+                <b>Quick Links</b>
+                <a href="menu.html">
+                    <p>Menu</p>
+                </a>
+                <p>About</p>
+                <p>Contact</p>
+                <p>Terms of Service</p>
+                <p>Privacy Policy</p>
+            </div>
+            <div class="fouth-div">
+                <b>Newsletter</b>
+                <p>Subscribe to get special offers</p>
+                <div class="email-and-btn">
+                    <label for="check"></label>
+                    <input id="check" type="email" placeholder="Your email" required>
+                    <button>Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-center">
+            Created by: <a href="https://ge.itstep.org/">IT Academy STEP Georgia</a>
+        </div>
+    </footer>
+    <script src="profile.js"></script>
+</body>
+
+</html>

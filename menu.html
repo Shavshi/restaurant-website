@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" />
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav-left">
+                <a href="index.html">
+                    <h3>Foodie</h3>
+                </a>
+                <div id="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="">Menu</a>
+
+                    <div class="mobile-buttons">
+                        <a href="logIn.html"><button id="loginBtnBurgerMenu"
+                                class="login-btn">Login</button></a>
+                        <a href="signUp.html"><button id="signBtnBurgerMenu" class="signup-btn">Sign
+                                Up</button></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-right">
+                <p id="counterForBasket"></p>
+                <a href="basket.html"><i class="fa-solid fa-cart-shopping"></i></a>
+                <div class="register-buttons">
+                    <a href="logIn.html"><button id="logIn">Login</button></a>
+                    <a href="signUp.html"><button id="signUp">Sign Up</button></a>
+                </div>
+                <i id="faUser" class="fa-regular fa-user"></i>
+                <div class="dropdown">
+                    <p>Hello: <span id="userName"></span></p>
+                    <div class="profile-and-btn">
+                        <a href="profile.html">Profile</a>
+                        <button id="logout">Logout</button>
+                    </div>
+                </div>
+                <i class="fa-solid fa-bars burger"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div id="toast" class="authentication-required">
+            <button class="toast-close" id="toastClose" type="button">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <i id="toastIcon" class="fa-solid fa-circle-exclamation toast-icon"></i>
+            <i id="toastSuccess" class="fa-solid fa-circle-check"></i>
+            <div class="toast-content">
+                <p class="toast-title" id="toastTitle"></p>
+                <p class="toast-text" id="toastText"></p>
+            </div>
+        </div>
+        <section>
+                 <div class="containerFilter">
+                <h2>Filters</h2>
+
+                <div class="searchDishes">
+                    <label for="searchInput">Search</label>
+                    <input id="searchInput" type="text" placeholder="Search dishes...">
+                </div>
+
+                <div class="categories">
+                    <div class="categoryP"></div>
+                </div>
+
+                <div class="vegeterianOnly">
+                    <p>Vegeterian Only</p>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
+                <div class="spiciness">
+                    <label for="spicinessRange">Spiciness (0-5)</label>
+                    <input id="spicinessRange" type="range" min="0" max="5" step="1" value="0">
+                    <p id="spicinessLevel">Level: not selected</p>
+                </div>
+
+                <div class="minimumRating">
+                    <label for="">Minimum Rating</label>
+                    <input id="ratingRange" type="range" min="0" max="5" step="0.5" value="0">
+                    <div id="ratingText">
+                        <i id="star" class="fa-solid fa-star"></i>
+                        <span id="ratingValue">0</span>
+                    </div>
+                    <!-- ეს ვარკსვლავი უნდა გადავიტანო popularDishes-ს ფეიჯზე ხვალ რადგან ზუსტად ის არის რომელიც მჭირდება, ოღონდ ხვალ უნდა ვქნა ეს -->
+                </div>
+
+                <div class="minPrice">
+                    <label for="">Min price</label>
+                    <input id="minPriceRange" type="range" min="0" max="100" step="2" value="0">
+                    <p id="minPriceValue"></p>
+                </div>
+
+                <div class="maxPrice">
+                    <label for="">Max price</label>
+                    <input id="maxPriceRange" type="range" min="5" max="100" step="2" value="100">
+                    <p id="maxPriceValue"></p>
+                </div>
+
+                <div class="clearAllFilters">
+                    <button id="clearAllFiltersBtn">Clear All Filters</button>
+                </div>
+            </div>
+            
+            <div class="productsMenu">
+                <div class="menuDiv">
+                    <div class="div">
+                    <h1>Menu</h1>
+                    <p id="showingProducts"></p>
+                    </div>
+                    
+                    <div class="btnForFilterburger">
+                   <button id="btnBurgerForFilter" data-slot="sheet-trigger" class="inline-flex items-center cursor-pointer justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 size-9 lg:hidden" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="radix-_r_1d_" data-state="closed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-funnel h-4 w-4" aria-hidden="true"><path d="M10 20a1 1 0 0 0 .553.895l2 1A1 1 0 0 0 14 21v-7a2 2 0 0 1 .517-1.341L21.74 4.67A1 1 0 0 0 21 3H3a1 1 0 0 0-.742 1.67l7.225 7.989A2 2 0 0 1 10 14z"></path></svg></button>
+
+                    </div>
+                   
+                </div>
+                <div class="noPopularDishesYet">
+                    <svg class="empty-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-package-open h-16 w-16" aria-hidden="true"><path d="M12 22v-9"></path><path d="M15.17 2.21a1.67 1.67 0 0 1 1.63 0L21 4.57a1.93 1.93 0 0 1 0 3.36L8.82 14.79a1.655 1.655 0 0 1-1.64 0L3 12.43a1.93 1.93 0 0 1 0-3.36z"></path><path d="M20 13v3.87a2.06 2.06 0 0 1-1.11 1.83l-6 3.08a1.93 1.93 0 0 1-1.78 0l-6-3.08A2.06 2.06 0 0 1 4 16.87V13"></path><path d="M21 12.43a1.93 1.93 0 0 0 0-3.36L8.83 2.2a1.64 1.64 0 0 0-1.63 0L3 4.57a1.93 1.93 0 0 0 0 3.36l12.18 6.86a1.636 1.636 0 0 0 1.63 0z"></path></svg>
+                    <h2>No Popular Dishes Yet</h2>
+                    <p>We're working on adding delicious dishes. Check back soon!</p>
+                </div>
+                <div id="container">
+
+                </div>
+                <div class="nextAndPreviousBtns">
+                    <div class="forBtns">
+                        
+                    </div>
+                </div>
+            </div>
+
+            
+
+        </section>
+    </main>
+
+
+    <section id="hero-bottom-section">
+        <div class="bottom-section-container">
+            <div class="first-div">
+                <b>Foodie</b>
+                <p>Delicious food delivered to your door</p>
+                <div class="icons">
+                    <i class="fa-brands fa-facebook-f"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                </div>
+            </div>
+            <div class="second-div">
+                <b>Contact</b>
+                <p>123 Food Street</p>
+                <p>City, State 12345</p>
+                <p>Phone: (555) 123-4567</p>
+                <p>Mon-Sun: 10AM - 10PM</p>
+            </div>
+            <div class="third-div">
+                <b>Quick Links</b>
+                <p>Menu</p>
+                <p>About</p>
+                <p>Contact</p>
+                <p>Terms of Service</p>
+                <p>Privacy Policy</p>
+            </div>
+            <div class="fouth-div">
+                <b>Newsletter</b>
+                <p>Subscribe to get special offers</p>
+                <div class="email-and-btn">
+                    <label for="check"></label>
+                    <input id="check" type="email" placeholder="Your email" required>
+                    <button>Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-center">
+            Created by: <a href="https://ge.itstep.org/">IT Academy STEP Georgia</a>
+        </div>
+    </footer>
+
+    <script src="menu.js"></script>
+</body>
+
+</html>

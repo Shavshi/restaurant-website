@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="verifity.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" />
+    
+</head>
+
+<body>
+    <main>
+          <div id="toast" class="verifty-code-is-incorect">
+            <button class="toast-close" id="toastClose" type="button">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <i id="toastIcon" class="fa-solid fa-circle-exclamation toast-icon"></i>
+            <i id="toastSuccess" class="fa-solid fa-circle-check"></i>
+            <div id="toastContent" class="toast-content">
+                <p class="toast-title" id="toastTitle"></p>
+                <p class="toast-text" id="toastText"></p>
+            </div>
+        </div>
+        <form action="">
+            <div class="top-form">
+                <h1>Verify Your Email</h1>
+                <p id="emailText"></p>
+            </div>
+            <div class="verification-code">
+                <div class="input-and-label">
+                    <label for="inputVerify">Verification code</label>
+                    <input id="inputVerify" type="text"  placeholder="Enter 6-digit code">
+                </div>
+                <button id="verifyBtn" type="submit">Verify</button>
+            </div>
+            <div class="resend-code">
+                 <div class="two-items-in-resend-code">
+                    <p id="didNotReceive">Didn't receive the code?</p>
+                     <button id="ResendCode" type="button">Resend code</button>
+                     <button id="ResendIn" type="button">Resend in  <span id="seconds"></span></button>
+                 </div>
+            </div>
+            <div class="bottom-form-back-to-signUp">
+                  <a href="signUp.html">Back to signUp</a>
+            </div>
+        </form>
+    </main>
+    <script type="module" src="verifity.js"></script>
+</body>
+
+</html>

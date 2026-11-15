@@ -1,0 +1,1055 @@
+* {
+  margin: 0rem;
+  padding: 0rem;
+  box-sizing: border-box;
+}
+* .hideBtns {
+  display: none !important;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  width: 100%;
+  min-height: 4rem;
+  padding: 0 1rem;
+  border-bottom: 1px solid #e5e5e3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+header nav {
+  width: 100%;
+  max-width: 94rem;
+  min-height: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+@media (max-width: 906px) {
+  header nav {
+    max-width: 50rem;
+  }
+}
+header nav .nav-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+header nav .nav-left a {
+  text-decoration: none;
+}
+header nav .nav-left h3 {
+  font-size: 1.5rem;
+  color: #FF6B35;
+  cursor: pointer;
+}
+header nav .nav-left #nav-links {
+  display: flex;
+  gap: 1.25rem;
+}
+header nav .nav-left #nav-links a {
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: none;
+  color: oklch(14.5% 0 0deg);
+  border: none;
+}
+header nav .nav-left #nav-links a:hover {
+  color: #FF6B35;
+}
+header nav .nav-left #nav-links a {
+  transition: 0.3s ease;
+}
+header nav .nav-left #nav-links .mobile-buttons {
+  display: none;
+}
+@media (max-width: 796px) {
+  header nav .nav-left #nav-links .mobile-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    width: 6rem;
+    margin-bottom: auto;
+  }
+  header nav .nav-left #nav-links .mobile-buttons .login-btn {
+    background-color: #FFFFFF;
+    color: oklch(14.5% 0 0deg);
+    border: none;
+    font-size: 0.9rem;
+  }
+  header nav .nav-left #nav-links .mobile-buttons .login-btn:hover {
+    color: #FF6B35;
+  }
+  header nav .nav-left #nav-links .mobile-buttons .signup-btn {
+    color: oklch(14.5% 0 0deg);
+    border: none;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    width: auto;
+    height: auto;
+  }
+  header nav .nav-left #nav-links .mobile-buttons .signup-btn:hover {
+    color: #FF6B35;
+  }
+  header nav .nav-left #nav-links .mobile-buttons .signup-btn {
+    text-align: start;
+  }
+}
+header nav .nav-left .close-btn {
+  display: none;
+}
+@media (max-width: 796px) {
+  header nav .nav-left .close-btn {
+    display: block;
+    align-self: flex-end;
+    background-color: #FFFFFF;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+}
+header nav .nav-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  position: relative;
+}
+header nav .nav-right #counterForBasket {
+  background-color: #FF6B35;
+  color: #FFFFFF;
+  width: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  height: 1.2rem;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+  position: absolute;
+  top: -0.2rem;
+  right: 3.5rem;
+  display: none;
+}
+@media (max-width: 796px) {
+  header nav .nav-right #counterForBasket {
+    right: 6.8rem;
+  }
+}
+header nav .nav-right #counterForBasket.countBasketAppear {
+  display: flex;
+}
+header nav .nav-right a {
+  text-decoration: none;
+  color: unset;
+}
+header nav .nav-right .fa-solid {
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+header nav .nav-right .fa-user {
+  background-color: #FF6B35;
+  color: #FFFFFF;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: none;
+}
+header nav .nav-right .fa-user.userAppear {
+  display: flex;
+}
+header nav .nav-right .dropdown {
+  width: 8rem;
+  height: 7rem;
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 2.7rem;
+  right: -0.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+}
+header nav .nav-right .dropdown.show {
+  visibility: visible;
+  transform: translate(0);
+  opacity: 1;
+}
+header nav .nav-right .dropdown p {
+  font-weight: bold;
+  font-size: 0.9rem;
+  padding: 0.5rem 0.5rem;
+}
+header nav .nav-right .dropdown .profile-and-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 0.8rem;
+  padding: 0rem 0.5rem;
+}
+header nav .nav-right .dropdown .profile-and-btn a {
+  text-decoration: none;
+  color: oklch(14.5% 0 0deg);
+  cursor: pointer;
+}
+header nav .nav-right .dropdown .profile-and-btn button {
+  border: none;
+  background-color: unset;
+  color: oklch(14.5% 0 0deg);
+  font-size: 1rem;
+  cursor: pointer;
+}
+header nav .nav-right .register-buttons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+header nav .nav-right .register-buttons #logIn {
+  background-color: #FFFFFF;
+  color: oklch(14.5% 0 0deg);
+  border: none;
+  font-size: 0.9rem;
+  width: 4rem;
+  height: 2.25rem;
+  border-radius: 6px;
+  transition: 0.3s ease;
+}
+header nav .nav-right .register-buttons #logIn:hover {
+  background-color: #e5e5e3;
+  cursor: pointer;
+}
+header nav .nav-right .register-buttons #signUp {
+  background-color: #FF6B35;
+  border: none;
+  border-radius: 6px;
+  color: #FFFFFF;
+  font-size: 0.9rem;
+  width: 5.2rem;
+  height: 2.25rem;
+}
+header nav .nav-right .register-buttons #signUp:hover {
+  background-color: #ff7a00;
+  cursor: pointer;
+}
+@media (max-width: 796px) {
+  header nav .nav-right .register-buttons {
+    display: none;
+  }
+}
+header nav .nav-right .burger {
+  display: none;
+  -moz-user-select: none;
+       user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+@media (max-width: 796px) {
+  header nav .nav-right .burger {
+    display: block;
+  }
+}
+
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  padding: 1rem;
+}
+main .profile {
+  background-color: #FFFFFF;
+  z-index: 1011;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  width: 22rem;
+  height: 4.5rem;
+  position: fixed;
+  top: -15rem;
+  left: 40%;
+}
+main .profile .toast-content {
+  display: flex;
+  flex-direction: column;
+  margin-left: 2rem;
+  margin-top: 0.3rem;
+}
+main .profile .toast-content #toastText {
+  font-size: 0.8rem;
+  color: #666;
+}
+main .profile .toast-content #toastText.size {
+  font-size: 0.7rem;
+}
+main .profile .toast-content #toastTitle {
+  font-size: 0.8rem;
+}
+main .profile.return {
+  top: 2rem;
+  transition: 0.8s ease;
+}
+main .profile.back {
+  top: -15rem;
+  transition: 0.8s ease;
+}
+main .profile button {
+  border: 1px solid #e5e7eb;
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  position: absolute;
+  top: -0.5rem;
+  left: -0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+main .profile .toast-icon {
+  position: absolute;
+  top: 1.6rem;
+  font-size: 1.1rem;
+}
+main .profile .toast-icon.disappearIcon {
+  display: none;
+}
+main .profile .fa-circle-check {
+  position: absolute;
+  top: 1.7rem;
+  font-size: 1.1rem;
+  display: none;
+}
+main .profile .fa-circle-check.appearSuccessLogin {
+  display: block;
+}
+main section {
+  width: 100%;
+  max-width: 54rem;
+  min-height: 60rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+@media (max-width: 906px) {
+  main section {
+    max-width: 50rem;
+  }
+}
+main section .peronsInfons {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  height: 2.5rem;
+  background-color: #F5F5F5;
+}
+main section .peronsInfons button {
+  width: 20rem;
+  background-color: #F5F5F5;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  color: #666;
+}
+main section .containerForPersonalInformation {
+  width: 100%;
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  min-height: 18rem;
+}
+main section .containerForPersonalInformation .first.disappearFirst {
+  display: none;
+}
+main section .containerForPersonalInformation .top-container {
+  width: 100%;
+  height: 5rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+main section .containerForPersonalInformation .top-container p {
+  color: #666;
+}
+main section .containerForPersonalInformation .imgUser {
+  width: 100%;
+  height: 5rem;
+  padding: 1rem;
+}
+main section .containerForPersonalInformation .imgUser .ball {
+  background-color: #F5F5F5;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main section .containerForPersonalInformation .imgUser .ball i {
+  font-size: 2rem;
+}
+main section .containerForPersonalInformation .picture {
+  margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 6rem;
+  padding: 1rem;
+  gap: 0.4rem;
+}
+main section .containerForPersonalInformation .picture input {
+  height: 2.2rem;
+  width: 12rem;
+  padding: 0rem 0.8rem;
+  background-color: #f5f5f5;
+  border: 1px solid #e5e5e3;
+  border-radius: 0.5rem;
+  outline: none;
+  transition: 0.3s ease;
+}
+main section .containerForPersonalInformation .picture input:focus {
+  border-color: #FF6B35;
+  box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.3);
+}
+main section .containerForPersonalInformation .picture input {
+  width: 100%;
+  height: 2.5rem;
+}
+main section .containerForPersonalInformation .firstNameAndLastName {
+  width: 100%;
+  height: 6rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  gap: 0.4rem;
+}
+@media (max-width: 906px) {
+  main section .containerForPersonalInformation .firstNameAndLastName {
+    flex-direction: column;
+    min-height: 10rem;
+  }
+}
+main section .containerForPersonalInformation .firstNameAndLastName input {
+  height: 2.2rem;
+  width: 12rem;
+  padding: 0rem 0.8rem;
+  background-color: #f5f5f5;
+  border: 1px solid #e5e5e3;
+  border-radius: 0.5rem;
+  outline: none;
+  transition: 0.3s ease;
+}
+main section .containerForPersonalInformation .firstNameAndLastName input:focus {
+  border-color: #FF6B35;
+  box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.3);
+}
+main section .containerForPersonalInformation .firstNameAndLastName input {
+  width: 25rem;
+  height: 2rem;
+}
+@media (max-width: 906px) {
+  main section .containerForPersonalInformation .firstNameAndLastName input {
+    width: 100%;
+  }
+}
+main section .containerForPersonalInformation .firstNameAndLastName .first {
+  display: flex;
+  flex-direction: column;
+}
+main section .containerForPersonalInformation .firstNameAndLastName .last {
+  display: flex;
+  flex-direction: column;
+}
+main section .containerForPersonalInformation .emailDiv {
+  width: 100%;
+  height: 5rem;
+  padding: 0rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+main section .containerForPersonalInformation .emailDiv input {
+  height: 2.2rem;
+  width: 12rem;
+  padding: 0rem 0.8rem;
+  background-color: #f5f5f5;
+  border: 1px solid #e5e5e3;
+  border-radius: 0.5rem;
+  outline: none;
+  transition: 0.3s ease;
+}
+main section .containerForPersonalInformation .emailDiv input:focus {
+  border-color: #FF6B35;
+  box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.3);
+}
+main section .containerForPersonalInformation .emailDiv input {
+  width: 100%;
+  color: #666;
+}
+main section .containerForPersonalInformation .phoneNumberDiv {
+  width: 100%;
+  height: 5rem;
+  padding: 0rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+main section .containerForPersonalInformation .phoneNumberDiv input {
+  height: 2.2rem;
+  width: 12rem;
+  padding: 0rem 0.8rem;
+  background-color: #f5f5f5;
+  border: 1px solid #e5e5e3;
+  border-radius: 0.5rem;
+  outline: none;
+  transition: 0.3s ease;
+}
+main section .containerForPersonalInformation .phoneNumberDiv input:focus {
+  border-color: #FF6B35;
+  box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.3);
+}
+main section .containerForPersonalInformation .phoneNumberDiv input {
+  width: 100%;
+}
+main section .containerForPersonalInformation .addressDiv {
+  width: 100%;
+  height: 7rem;
+  padding: 0rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+main section .containerForPersonalInformation .addressDiv input {
+  height: 2.2rem;
+  width: 12rem;
+  padding: 0rem 0.8rem;
+  background-color: #f5f5f5;
+  border: 1px solid #e5e5e3;
+  border-radius: 0.5rem;
+  outline: none;
+  transition: 0.3s ease;
+}
+main section .containerForPersonalInformation .addressDiv input:focus {
+  border-color: #FF6B35;
+  box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.3);
+}
+main section .containerForPersonalInformation .addressDiv input {
+  width: 100%;
+  height: 4rem;
+}
+main section .containerForPersonalInformation .ageDiv {
+  width: 100%;
+  height: 5rem;
+  padding: 0rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+main section .containerForPersonalInformation .ageDiv input {
+  height: 2.2rem;
+  width: 12rem;
+  padding: 0rem 0.8rem;
+  background-color: #f5f5f5;
+  border: 1px solid #e5e5e3;
+  border-radius: 0.5rem;
+  outline: none;
+  transition: 0.3s ease;
+}
+main section .containerForPersonalInformation .ageDiv input:focus {
+  border-color: #FF6B35;
+  box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.3);
+}
+main section .containerForPersonalInformation .ageDiv input {
+  width: 100%;
+}
+main section .containerForPersonalInformation .saveChangesDiv {
+  width: 100%;
+  height: 4rem;
+  padding: 0rem 1rem;
+}
+main section .containerForPersonalInformation .saveChangesDiv button {
+  background-color: #FF6B35;
+  color: #FFFFFF;
+  width: 7.5rem;
+  height: 2.5rem;
+  border: none;
+  border-radius: 6px;
+}
+main section .containerForPersonalInformation .saveChangesDiv button:hover {
+  background-color: #ff7a00;
+  cursor: pointer;
+}
+main section .containerForPersonalInformation .saveChangesDiv button {
+  transition: 0.3s ease;
+}
+main section .containerForPersonalInformation .saveChangesDiv button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+main section .containerForPersonalInformation .second {
+  display: none;
+}
+main section .containerForPersonalInformation .second.appearSecond {
+  display: block;
+}
+main section .containerForPersonalInformation .topSecond {
+  width: 100%;
+  height: 6rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+main section .containerForPersonalInformation .control {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main section .containerForPersonalInformation .overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+main section .containerForPersonalInformation .overlay.appearOverlay {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+main section .containerForPersonalInformation .removeDiv {
+  width: 30rem;
+  min-height: 8rem;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem;
+  transform: scale(0.8) translateY(30px);
+  transition: transform 0.2s ease-in;
+}
+main section .containerForPersonalInformation .removeDiv .topRemove {
+  gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+main section .containerForPersonalInformation .removeDiv .topRemove p {
+  color: #666;
+}
+main section .containerForPersonalInformation .removeDiv .buttonsForRemoveAndCancel {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+main section .containerForPersonalInformation .removeDiv .buttonsForRemoveAndCancel #cancel {
+  width: 4rem;
+  height: 2rem;
+  background-color: #F8F8F8;
+  border-radius: 6px;
+  color: #0A0A0A;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+  font-size: 0.8rem;
+}
+main section .containerForPersonalInformation .removeDiv .buttonsForRemoveAndCancel #cancel:hover {
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+main section .containerForPersonalInformation .removeDiv .buttonsForRemoveAndCancel #remove {
+  background-color: red;
+  color: #FFFFFF;
+  font-size: 0.8rem;
+  width: 8rem;
+  height: 2rem;
+  border: none;
+  border-radius: 6px;
+}
+main section .containerForPersonalInformation .removeDiv .buttonsForRemoveAndCancel #remove:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+main section .containerForPersonalInformation .overlay.appearOverlay .removeDiv {
+  transform: scale(1) translateY(0);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+main section .containerForPersonalInformation .deleteContainer {
+  padding: 1rem;
+  width: 90%;
+  border: 1px solid red;
+  border-radius: 6px;
+  height: 10rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+main section .containerForPersonalInformation .deleteContainer h2 {
+  color: #E7000B;
+}
+main section .containerForPersonalInformation .deleteContainer p {
+  color: #666;
+}
+main section .containerForPersonalInformation .deleteContainer button {
+  width: 10rem;
+  height: 2.5rem;
+  background-color: #F1666C;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+main section .third {
+  display: none;
+}
+main section .third.appearThird {
+  display: block;
+}
+main section .third .topThird {
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+}
+main section .third .topThird p {
+  color: #666;
+  font-size: 0.9rem;
+}
+main section .third .middleThird {
+  width: 100%;
+  min-height: 5rem;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 0.8rem;
+  position: relative;
+}
+main section .third .middleThird input {
+  height: 2.2rem;
+  width: 12rem;
+  padding: 0rem 0.8rem;
+  background-color: #f5f5f5;
+  border: 1px solid #e5e5e3;
+  border-radius: 0.5rem;
+  outline: none;
+  transition: 0.3s ease;
+}
+main section .third .middleThird input:focus {
+  border-color: #FF6B35;
+  box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.3);
+}
+main section .third .middleThird input {
+  width: 100%;
+}
+main section .third .middleThird #faEyeFirst {
+  position: absolute;
+  right: 1.5rem;
+  top: 3.5rem;
+  cursor: pointer;
+}
+main section .third .middleThird #faEyeFirst.disappearEye {
+  display: none;
+}
+main section .third .middleThird #faEyeSlashFirst {
+  position: absolute;
+  right: 1.5rem;
+  top: 3.5rem;
+  display: none;
+}
+main section .third .middleThird #faEyeSlashFirst.appearEyeSlash {
+  display: block;
+  cursor: pointer;
+}
+main section .third .middleThird #faEyeSecond {
+  position: absolute;
+  right: 1.5rem;
+  top: 8.5rem;
+}
+main section .third .middleThird #faEyeSecond.disappearEye {
+  display: none;
+}
+main section .third .middleThird #faEyeSlashSecond {
+  position: absolute;
+  right: 1.5rem;
+  top: 8.5rem;
+  display: none;
+}
+main section .third .middleThird #faEyeSlashSecond.appearEyeSlash {
+  display: block;
+  cursor: pointer;
+}
+main section .third .rules-of-password {
+  width: 100%;
+  height: 5rem;
+  padding: 0rem 1rem;
+  font-size: 0.9rem;
+  color: #666;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+main section .third .errors {
+  width: 100%;
+  min-height: 2rem;
+  padding: 1rem;
+  display: none;
+}
+main section .third .errors.appearPasswordErrors {
+  display: block;
+}
+main section .third .errors p {
+  color: red;
+}
+main section .third .updatePassword {
+  width: 100%;
+  height: 5rem;
+  padding: 1rem;
+}
+main section .third .updatePassword button {
+  background-color: #FF6B35;
+  color: #FFFFFF;
+  border: none;
+  height: 2.2rem;
+  width: 9rem;
+  border-radius: 6px;
+}
+main section .third .updatePassword button:hover {
+  background-color: #ff7a00;
+  cursor: pointer;
+}
+main section .third .updatePassword button {
+  transition: 0.3s ease;
+}
+main section .third .updatePassword button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+#hero-bottom-section {
+  width: 100%;
+  min-height: 20rem;
+  background-color: #fafafa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #e5e5e3;
+  padding: 3rem 1rem;
+}
+#hero-bottom-section .bottom-section-container {
+  width: 100%;
+  width: 94rem;
+  min-height: 10rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+@media (max-width: 1000px) {
+  #hero-bottom-section .bottom-section-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+@media (max-width: 640px) {
+  #hero-bottom-section .bottom-section-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+#hero-bottom-section .bottom-section-container .first-div {
+  gap: 1.3rem;
+  display: flex;
+  flex-direction: column;
+}
+#hero-bottom-section .bottom-section-container .first-div b {
+  color: #FF6B35;
+  font-size: 1.2rem;
+}
+#hero-bottom-section .bottom-section-container .first-div p {
+  color: #666;
+}
+#hero-bottom-section .bottom-section-container .first-div .icons {
+  display: flex;
+  gap: 0.8rem;
+}
+#hero-bottom-section .bottom-section-container .first-div .icons .fa-facebook-f,
+#hero-bottom-section .bottom-section-container .first-div .icons .fa-instagram,
+#hero-bottom-section .bottom-section-container .first-div .icons .fa-twitter {
+  transition: 0.3s ease;
+}
+#hero-bottom-section .bottom-section-container .first-div .icons .fa-facebook-f:hover,
+#hero-bottom-section .bottom-section-container .first-div .icons .fa-instagram:hover,
+#hero-bottom-section .bottom-section-container .first-div .icons .fa-twitter:hover {
+  color: #FF6B35;
+  cursor: pointer;
+}
+#hero-bottom-section .bottom-section-container .second-div {
+  gap: 0.7rem;
+  display: flex;
+  flex-direction: column;
+}
+#hero-bottom-section .bottom-section-container .second-div p {
+  color: gray;
+}
+#hero-bottom-section .bottom-section-container .third-div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+#hero-bottom-section .bottom-section-container .third-div a {
+  text-decoration: none;
+  color: unset;
+}
+#hero-bottom-section .bottom-section-container .third-div p {
+  color: #666;
+  transition: 0.3s ease;
+}
+#hero-bottom-section .bottom-section-container .third-div p:hover {
+  color: #FF6B35;
+  cursor: pointer;
+}
+#hero-bottom-section .bottom-section-container .fouth-div {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  gap: 0.7rem;
+}
+#hero-bottom-section .bottom-section-container .fouth-div p {
+  color: #666;
+}
+#hero-bottom-section .bottom-section-container .fouth-div .email-and-btn {
+  display: flex;
+  gap: 0.5rem;
+}
+#hero-bottom-section .bottom-section-container .fouth-div .email-and-btn input {
+  height: 2.2rem;
+  width: 16rem;
+  padding: 0rem 1rem;
+  background-color: #f5f5f5;
+  border: 1px solid #e5e5e3;
+  border-radius: 0.5rem;
+  outline: none;
+  transition: 0.3s ease;
+}
+#hero-bottom-section .bottom-section-container .fouth-div .email-and-btn input:focus {
+  border-color: #FF6B35;
+  box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.3);
+}
+#hero-bottom-section .bottom-section-container .fouth-div .email-and-btn button {
+  color: #FFFFFF;
+  background-color: #FF6B35;
+  border: none;
+  border-radius: 5px;
+  height: 2.5rem;
+  width: 6rem;
+}
+#hero-bottom-section .bottom-section-container .fouth-div .email-and-btn button:hover {
+  background-color: #ff7a00;
+  cursor: pointer;
+}
+#hero-bottom-section .bottom-section-container .fouth-div .email-and-btn button {
+  transition: 0.3s ease;
+}
+
+footer {
+  width: 100%;
+  min-height: 6rem;
+  background-color: #fafafa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #e5e5e3;
+}
+footer .footer-center a {
+  color: #FF6B35;
+}
+
+@media (max-width: 796px) {
+  main #top-section .hero-top-section-img-center h1 {
+    font-size: 2.25rem;
+  }
+  main #top-section .hero-top-section-img-center p {
+    font-size: 1.1rem;
+  }
+  .nav-right .burger {
+    display: block;
+  }
+  .nav-left #nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    z-index: 101;
+    position: fixed;
+    width: 20rem;
+    right: -20rem;
+    height: 100vh;
+    top: 0;
+    background-color: #FFFFFF;
+    transition: right 0.3s ease;
+    padding: 1.5rem;
+    cursor: pointer;
+    -moz-user-select: none;
+         user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .nav-left #nav-links.active {
+    right: 0;
+  }
+  .nav-left #nav-links:hover {
+    color: #FF6B35;
+    cursor: pointer;
+  }
+}/*# sourceMappingURL=profile.css.map */

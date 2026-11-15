@@ -1,0 +1,1091 @@
+$main-color: #FF6B35;
+$white-color: #FFFFFF;
+$black-color: oklch(0.145 0 0);
+$grey: #666;
+$sait-backgroundColor: #fafafa;
+$black-color-for-color: #0A0A0A;
+
+@mixin forBtnTime {
+    transition: 0.3s ease;
+}
+
+@mixin user-select {
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin hoverBtn {
+    &:hover {
+        background-color: #ff7a00;
+        cursor: pointer;
+    }
+}
+
+@mixin mainColorHoverBtn {
+    &:hover {
+        color: $main-color;
+    }
+}
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin forInputs {
+    height: 2.2rem;
+    width: 12rem;
+    padding: 0rem 0.8rem;
+    background-color: #f5f5f5;
+    border: 1px solid #e5e5e3;
+    border-radius: 0.5rem;
+    outline: none;
+    @include forBtnTime();
+
+    &:focus {
+        border-color: $main-color;
+        box-shadow: 0 0 0 3px rgba($main-color, 0.3);
+    }
+}
+
+* {
+    margin: 0rem;
+    padding: 0rem;
+    box-sizing: border-box;
+
+    .hideBtns {
+        display: none !important;
+    }
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    @include flex-column();
+}
+
+header {
+    width: 100%;
+    min-height: 4rem;
+    padding: 0 1rem;
+    border-bottom: 1px solid #e5e5e3;
+    @include flex-center();
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: rgba(255, 255, 255, 0.8);
+
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background-color: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+    }
+
+    nav {
+        width: 100%;
+        max-width: 94rem;
+        min-height: 4rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+
+        @media (max-width: 906px) {
+            max-width: 50rem;
+        }
+
+        .nav-left {
+            @include flex-center();
+            gap: 1rem;
+
+            a {
+                text-decoration: none;
+            }
+
+            h3 {
+                font-size: 1.5rem;
+                color: $main-color;
+                cursor: pointer;
+            }
+
+            #nav-links {
+                display: flex;
+                gap: 1.25rem;
+
+                a {
+                    font-size: 0.9rem;
+                    cursor: pointer;
+                    text-decoration: none;
+                    color: $black-color;
+                    border: none;
+                    @include mainColorHoverBtn();
+                    @include forBtnTime();
+                }
+
+                .mobile-buttons {
+                    display: none;
+
+                    @media (max-width: 796px) {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        gap: 1rem;
+                        width: 6rem;
+                        margin-bottom: auto;
+
+                        .login-btn {
+                            background-color: $white-color;
+                            color: $black-color;
+                            border: none;
+                            font-size: 0.9rem;
+                            @include mainColorHoverBtn();
+                        }
+
+                        .signup-btn {
+                            color: $black-color;
+                            border: none;
+                            background-color: $white-color;
+                            border-radius: 5px;
+                            font-size: 0.9rem;
+                            width: auto;
+                            height: auto;
+                            @include mainColorHoverBtn();
+                            text-align: start;
+                        }
+                    }
+                }
+            }
+
+            .close-btn {
+                display: none;
+
+                @media (max-width: 796px) {
+                    display: block;
+                    align-self: flex-end;
+                    background-color: $white-color;
+                    border: none;
+                    font-size: 1.5rem;
+                    cursor: pointer;
+                    position: absolute;
+                    top: 1rem;
+                    right: 1rem;
+                }
+            }
+        }
+
+        .nav-right {
+            @include flex-center();
+            gap: 1.5rem;
+            position: relative;
+
+            #counterForBasket {
+                background-color: $main-color;
+                color: $white-color;
+                width: 1.2rem;
+                @include flex-center();
+                border-radius: 50%;
+                height: 1.2rem;
+                font-size: 0.8rem;
+                flex-shrink: 0;
+                position: absolute;
+                top: -0.2rem;
+                right: 3.5rem;
+                display: none;
+
+                @media (max-width: 796px) {
+                    right: 6.8rem;
+                }
+
+                &.countBasketAppear {
+                    display: flex;
+                }
+            }
+
+            a {
+                text-decoration: none;
+                color: unset;
+            }
+
+            .fa-solid {
+                font-size: 1.3rem;
+                cursor: pointer;
+            }
+
+            .fa-user {
+                background-color: $main-color;
+                color: $white-color;
+                width: 2.5rem;
+                height: 2.5rem;
+                @include flex-center();
+                border-radius: 10px;
+                font-size: 1.2rem;
+                cursor: pointer;
+                display: none;
+
+                &.userAppear {
+                    display: flex;
+                }
+            }
+
+            .dropdown {
+                width: 8rem;
+                height: 7rem;
+                background-color: white;
+                border: 1px solid #e5e7eb;
+                border-radius: 6px;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+                position: absolute;
+                top: 2.7rem;
+                right: -0.4rem;
+                @include flex-column();
+                gap: 0.6rem;
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-10px);
+                transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+
+                &.show {
+                    visibility: visible;
+                    transform: translate(0);
+                    opacity: 1;
+                }
+
+                p {
+                    font-weight: bold;
+                    font-size: 0.9rem;
+                    padding: 0.5rem 0.5rem;
+                }
+
+                .profile-and-btn {
+                    @include flex-column();
+                    align-items: start;
+                    gap: 0.8rem;
+                    padding: 0rem 0.5rem;
+
+                    a {
+                        text-decoration: none;
+                        color: $black-color;
+                        cursor: pointer;
+                    }
+
+                    button {
+                        border: none;
+                        background-color: unset;
+                        color: $black-color;
+                        font-size: 1rem;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .register-buttons {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+
+                #logIn {
+                    background-color: $white-color;
+                    color: $black-color;
+                    border: none;
+                    font-size: 0.9rem;
+                    width: 4rem;
+                    height: 2.25rem;
+                    border-radius: 6px;
+                    @include forBtnTime();
+
+                    &:hover {
+                        background-color: #e5e5e3;
+                        cursor: pointer;
+                    }
+                }
+
+                #signUp {
+                    background-color: $main-color;
+                    border: none;
+                    border-radius: 6px;
+                    color: $white-color;
+                    font-size: 0.9rem;
+                    width: 5.2rem;
+                    height: 2.25rem;
+                    @include hoverBtn();
+                }
+
+                @media (max-width: 796px) {
+                    display: none;
+                }
+            }
+
+            .burger {
+                display: none;
+                @include user-select();
+
+                @media (max-width: 796px) {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+main {
+    width: 100%;
+    @include flex-column();
+    flex: 1;
+    align-items: center;
+    padding: 1rem;
+
+    .profile {
+        background-color: $white-color;
+        z-index: 1011;
+        background: #fff;
+        border: 1px solid #e5e7eb;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        padding: 16px;
+        width: 22rem;
+        height: 4.5rem;
+        position: fixed;
+        top: -15rem;
+        left: 40%;
+
+        .toast-content {
+            @include flex-column();
+            margin-left: 2rem;
+            margin-top: 0.3rem;
+
+            #toastText {
+                font-size: 0.8rem;
+                color: $grey;
+
+                &.size {
+                    font-size: 0.7rem;
+                }
+            }
+
+            #toastTitle {
+                font-size: 0.8rem;
+            }
+        }
+
+        &.return {
+            top: 2rem;
+            transition: 0.8s ease;
+        }
+
+        &.back {
+            top: -15rem;
+            transition: 0.8s ease;
+        }
+
+        button {
+            border: 1px solid #e5e7eb;
+            border-radius: 50%;
+            width: 1.5rem;
+            height: 1.5rem;
+            position: absolute;
+            top: -0.5rem;
+            left: -0.5rem;
+            @include flex-center();
+            cursor: pointer;
+        }
+
+        .toast-icon {
+            position: absolute;
+            top: 1.6rem;
+            font-size: 1.1rem;
+
+            &.disappearIcon {
+                display: none
+            }
+
+        }
+
+        .fa-circle-check {
+            position: absolute;
+            top: 1.7rem;
+            font-size: 1.1rem;
+            display: none;
+
+            &.appearSuccessLogin {
+                display: block;
+            }
+        }
+    }
+
+    section {
+        width: 100%;
+        max-width: 54rem;
+        min-height: 60rem;
+        @include flex-column();
+        gap: 1rem;
+
+
+        @media (max-width: 906px) {
+            max-width: 50rem;
+        }
+
+        .peronsInfons {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            height: 2.5rem;
+            background-color: #F5F5F5;
+
+
+            button {
+                width: 20rem;
+                background-color: #F5F5F5;
+                border: none;
+                border-radius: 1rem;
+                cursor: pointer;
+                color: $grey;
+            }
+        }
+
+        .containerForPersonalInformation {
+            width: 100%;
+            background-color: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            min-height: 18rem;
+
+            .first {
+
+                &.disappearFirst {
+                    display: none;
+                }
+            }
+
+            .top-container {
+                width: 100%;
+                height: 5rem;
+                padding: 1rem;
+                @include flex-column();
+                gap: 0.5rem;
+
+                p {
+                    color: $grey;
+                }
+            }
+
+            .imgUser {
+                width: 100%;
+                height: 5rem;
+                padding: 1rem;
+
+                .ball {
+                    background-color: #F5F5F5;
+                    width: 5rem;
+                    height: 5rem;
+                    border-radius: 50%;
+                    @include flex-center();
+
+                    i {
+                        font-size: 2rem;
+                    }
+                }
+            }
+
+            .picture {
+                margin-top: 1rem;
+                width: 100%;
+                @include flex-column();
+                height: 6rem;
+                padding: 1rem;
+                gap: 0.4rem;
+
+                input {
+                    @include forInputs();
+                    width: 100%;
+                    height: 2.5rem;
+                }
+            }
+
+            .firstNameAndLastName {
+                width: 100%;
+                height: 6rem;
+                display: flex;
+                justify-content: space-between;
+                padding: 1rem;
+                gap: 0.4rem;
+
+                @media (max-width: 906px) {
+                    flex-direction: column;
+                    min-height: 10rem;
+                }
+
+                input {
+                    @include forInputs();
+                    width: 25rem;
+
+                    height: 2rem;
+
+                    @media (max-width: 906px) {
+                        width: 100%;
+                    }
+
+                }
+
+                .first {
+                    @include flex-column();
+                }
+
+                .last {
+                    @include flex-column();
+                }
+            }
+
+            .emailDiv {
+                width: 100%;
+                height: 5rem;
+                padding: 0rem 1rem;
+                @include flex-column();
+                gap: 0.4rem;
+
+                input {
+                    @include forInputs();
+                    width: 100%;
+                    color: $grey;
+                }
+            }
+
+            .phoneNumberDiv {
+                width: 100%;
+                height: 5rem;
+                padding: 0rem 1rem;
+                @include flex-column();
+                gap: 0.4rem;
+
+                input {
+                    @include forInputs();
+                    width: 100%;
+                }
+            }
+
+            .addressDiv {
+                width: 100%;
+                height: 7rem;
+                padding: 0rem 1rem;
+                @include flex-column();
+                gap: 0.4rem;
+
+                input {
+                    @include forInputs();
+                    width: 100%;
+                    height: 4rem;
+                }
+            }
+
+            .ageDiv {
+                width: 100%;
+                height: 5rem;
+                padding: 0rem 1rem;
+                @include flex-column();
+                gap: 0.4rem;
+
+                input {
+                    @include forInputs();
+                    width: 100%;
+                }
+            }
+
+            .saveChangesDiv {
+                width: 100%;
+                height: 4rem;
+                padding: 0rem 1rem;
+
+                button {
+                    background-color: $main-color;
+                    color: $white-color;
+                    width: 7.5rem;
+                    height: 2.5rem;
+                    border: none;
+                    border-radius: 6px;
+                    @include hoverBtn();
+                    @include forBtnTime();
+
+                    &:disabled {
+                        opacity: 0.6;
+                        cursor: not-allowed;
+                    }
+                }
+            }
+
+            .second {
+                display: none;
+
+                &.appearSecond {
+                    display: block;
+                }
+            }
+
+            .topSecond {
+                width: 100%;
+                height: 6rem;
+                padding: 1rem;
+                @include flex-column();
+                gap: 0.5rem;
+            }
+
+            .control {
+                width: 100%;
+                @include flex-center();
+            }
+
+            .overlay {
+                position: fixed;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.5);
+                @include flex-center();
+                z-index: 1000;
+
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+                transition: opacity 0.25s ease, visibility 0.25s ease;
+
+                &.appearOverlay {
+                    opacity: 1;
+                    visibility: visible;
+                    pointer-events: auto;
+                }
+            }
+
+
+            .removeDiv {
+                width: 30rem;
+                min-height: 8rem;
+                background: white;
+                border: 1px solid #e5e7eb;
+                border-radius: 16px;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+                @include flex-column();
+                justify-content: center;
+                gap: 2rem;
+                padding: 1rem;
+                transform: scale(0.8) translateY(30px);
+                transition: transform 0.2s ease-in;
+
+
+                .topRemove {
+                    gap: 0.5rem;
+                    @include flex-column();
+
+                    p {
+                        color: $grey;
+                    }
+                }
+
+                .buttonsForRemoveAndCancel {
+                    width: 100%;
+                    display: flex;
+                    gap: 1rem;
+                    justify-content: flex-end;
+
+                    #cancel {
+                        width: 4rem;
+                        height: 2rem;
+                        background-color: #F8F8F8;
+                        border-radius: 6px;
+                        color: $black-color-for-color;
+                        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+                        border: 1px solid #e5e7eb;
+                        font-size: 0.8rem;
+
+
+
+                        &:hover {
+                            background-color: #f5f5f5;
+                            cursor: pointer;
+                        }
+                    }
+
+                    #remove {
+                        background-color: red;
+                        color: $white-color;
+                        font-size: 0.8rem;
+                        width: 8rem;
+                        height: 2rem;
+                        border: none;
+                        border-radius: 6px;
+
+                        &:hover {
+                            cursor: pointer;
+                            opacity: 0.8;
+                        }
+                    }
+                }
+            }
+
+            .overlay.appearOverlay .removeDiv {
+                transform: scale(1) translateY(0);
+                transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            }
+
+            .deleteContainer {
+                padding: 1rem;
+                width: 90%;
+                border: 1px solid red;
+                border-radius: 6px;
+                height: 10rem;
+                @include flex-column();
+                gap: 1rem;
+
+                h2 {
+                    color: #E7000B;
+                }
+
+                p {
+                    color: $grey;
+                }
+
+                button {
+                    width: 10rem;
+                    height: 2.5rem;
+                    background-color: #F1666C;
+                    color: $white-color;
+                    border: none;
+                    border-radius: 6px;
+                    cursor: pointer;
+                }
+            }
+        }
+
+
+        .third {
+            display: none;
+
+            &.appearThird {
+                display: block;
+            }
+
+            .topThird {
+                width: 100%;
+                height: 4rem;
+                @include flex-column();
+                gap: 0.5rem;
+                padding: 1rem;
+
+                p {
+                    color: $grey;
+                    font-size: 0.9rem;
+                }
+            }
+
+            .middleThird {
+                width: 100%;
+                min-height: 5rem;
+                @include flex-column();
+                padding: 1rem;
+                gap: 0.8rem;
+                position: relative;
+
+                input {
+                    @include forInputs();
+                    width: 100%;
+                }
+
+                #faEyeFirst {
+                    position: absolute;
+                    right: 1.5rem;
+                    top: 3.5rem;
+                    cursor: pointer;
+
+                    &.disappearEye {
+                        display: none;
+                    }
+                }
+
+                #faEyeSlashFirst {
+                    position: absolute;
+                    right: 1.5rem;
+                    top: 3.5rem;
+                    display: none;
+
+                    &.appearEyeSlash {
+                        display: block;
+                        cursor: pointer;
+                    }
+                }
+
+                #faEyeSecond {
+                    position: absolute;
+                    right: 1.5rem;
+                    top: 8.5rem;
+
+                    &.disappearEye {
+                        display: none;
+                    }
+                }
+
+                #faEyeSlashSecond {
+                    position: absolute;
+                    right: 1.5rem;
+                    top: 8.5rem;
+                    display: none;
+
+
+                    &.appearEyeSlash {
+                        display: block;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .rules-of-password {
+                width: 100%;
+                height: 5rem;
+                padding: 0rem 1rem;
+                font-size: 0.9rem;
+                color: $grey;
+                @include flex-column();
+                gap: 0.3rem;
+            }
+
+            .errors {
+                width: 100%;
+                min-height: 2rem;
+                padding: 1rem;
+                display: none;
+
+                &.appearPasswordErrors {
+                    display: block;
+                }
+
+                p {
+                    color: red;
+                }
+            }
+
+            .updatePassword {
+                width: 100%;
+                height: 5rem;
+                padding: 1rem;
+
+                button {
+                    background-color: $main-color;
+                    color: $white-color;
+                    border: none;
+                    height: 2.2rem;
+                    width: 9rem;
+                    border-radius: 6px;
+                    @include hoverBtn();
+                    @include forBtnTime();
+
+                    &:disabled {
+                        opacity: 0.6;
+                        cursor: not-allowed;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+#hero-bottom-section {
+    width: 100%;
+    min-height: 20rem;
+    background-color: $sait-backgroundColor;
+    @include flex-center();
+    border-top: 1px solid #e5e5e3;
+    padding: 3rem 1rem;
+
+    .bottom-section-container {
+        width: 100%;
+        width: 94rem;
+        min-height: 10rem;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+
+        @media (max-width: 1000px) {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 640px) {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .first-div {
+            gap: 1.3rem;
+            @include flex-column();
+
+            b {
+                color: $main-color;
+                font-size: 1.2rem;
+            }
+
+            p {
+                color: $grey;
+            }
+
+            .icons {
+                display: flex;
+                gap: 0.8rem;
+
+                .fa-facebook-f,
+                .fa-instagram,
+                .fa-twitter {
+                    @include forBtnTime();
+
+                    &:hover {
+                        color: $main-color;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+
+        .second-div {
+            gap: 0.7rem;
+            @include flex-column();
+
+            p {
+                color: gray;
+            }
+        }
+
+        .third-div {
+            @include flex-column();
+            gap: 0.7rem;
+
+            a {
+                text-decoration: none;
+                color: unset;
+            }
+
+            p {
+                color: $grey;
+                @include forBtnTime();
+
+                &:hover {
+                    color: $main-color;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .fouth-div {
+            @include flex-column();
+            align-items: start;
+            justify-content: start;
+            gap: 0.7rem;
+
+            p {
+                color: $grey;
+            }
+
+            .email-and-btn {
+                display: flex;
+                gap: 0.5rem;
+
+                input {
+                    height: 2.2rem;
+                    width: 16rem;
+                    padding: 0rem 1rem;
+                    background-color: #f5f5f5;
+                    border: 1px solid #e5e5e3;
+                    border-radius: 0.5rem;
+                    outline: none;
+                    @include forBtnTime();
+
+                    &:focus {
+                        border-color: $main-color;
+                        box-shadow: 0 0 0 3px rgba($main-color, 0.3);
+                    }
+                }
+
+                button {
+                    color: $white-color;
+                    background-color: $main-color;
+                    border: none;
+                    border-radius: 5px;
+                    height: 2.5rem;
+                    width: 6rem;
+                    @include hoverBtn();
+                    @include forBtnTime();
+                }
+            }
+
+        }
+
+
+    }
+
+}
+
+
+footer {
+    width: 100%;
+    min-height: 6rem;
+    background-color: $sait-backgroundColor;
+    @include flex-center();
+    border-top: 1px solid #e5e5e3;
+
+    .footer-center {
+        a {
+            color: $main-color;
+        }
+    }
+}
+
+@media (max-width: 796px) {
+    main #top-section .hero-top-section-img-center {
+        h1 {
+            font-size: 2.25rem;
+        }
+
+        p {
+            font-size: 1.1rem;
+        }
+    }
+
+    .nav-right {
+        .burger {
+            display: block;
+        }
+    }
+
+    .nav-left {
+        #nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 101;
+            position: fixed;
+            width: 20rem;
+            right: -20rem;
+            height: 100vh;
+            top: 0;
+            background-color: $white-color;
+            transition: right 0.3s ease;
+            padding: 1.5rem;
+            cursor: pointer;
+            @include user-select();
+
+            &.active {
+                right: 0;
+            }
+
+            &:hover {
+                color: $main-color;
+                cursor: pointer;
+            }
+        }
+    }
+}

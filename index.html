@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" />
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav-left">
+                <a href="index.html">
+                    <h3>Foodie</h3>
+                </a>
+                <div id="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="menu.html">Menu</a>
+
+                    <div class="mobile-buttons">
+                        <a href="logIn.html"><button id="loginBtnBurgerMenu"
+                                class="login-btn">Login</button></a>
+                        <a href="signUp.html"><button id="signBtnBurgerMenu" class="signup-btn">Sign
+                                Up</button></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-right">
+                <p id="counterForBasket"></p>
+                <a href="basket.html"><i class="fa-solid fa-cart-shopping"></i></a>
+                <div class="register-buttons">
+                    <a href="logIn.html"><button id="logIn">Login</button></a>
+                    <a href="signUp.html"><button id="signUp">Sign Up</button></a>
+                </div>
+                <i id="faUser" class="fa-regular fa-user"></i>
+                <div class="dropdown">
+                    <p>Hello: <span id="userName"></span></p>
+                    <div class="profile-and-btn">
+                        <a href="profile.html">Profile</a>
+                        <button id="logout">Logout</button>
+                    </div>
+                </div>
+                <i class="fa-solid fa-bars burger"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div id="toast" class="authentication-required">
+            <button class="toast-close" id="toastClose" type="button">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <i id="toastIcon" class="fa-solid fa-circle-exclamation toast-icon"></i>
+            <i id="toastSuccess" class="fa-solid fa-circle-check"></i>
+            <div class="toast-content">
+                <p class="toast-title" id="toastTitle"></p>
+                <p class="toast-text" id="toastText"></p>
+            </div>
+        </div>
+
+        <section id="top-section">
+            <div class="hero-top-section-img-center">
+                <h1>Delicious Food Delivered to Your Door</h1>
+                <p>Fresh ingredients, authentic flavors, fast delivery</p>
+                <a href="menu.html"><button>Order Now</button></a>
+            </div>
+            <img src="restaurant-food-spread.png" alt="">
+        </section>
+        <section id="hero-center-section-dishes">
+            <h4>Popular Dishes</h4>
+            <div id="dishes-container">
+
+            </div>
+        </section>
+
+        <section id="hero-bottom-section-our-story">
+            <div class="our-story-container">
+                <img src="restaurant-kitchen-chef-cooking.jpg" alt="">
+                <div class="our-story">
+                    <h1>Our Story</h1>
+
+                    <p>At Foodie, we believe that great food brings people together. Our chefs use only the freshest
+                        ingredients to create dishes that delight your taste buds and warm your heart.
+                        <br><br>
+                        From traditional recipes passed down through generations to innovative modern cuisine, every
+                        dish is crafted with passion and care. We're committed to delivering not just meals, but
+                        memorable dining experiences right to your door.
+                    </p>
+
+                    <a href="menu.html"><button>Explore Our Menu</button></a>
+                </div>
+            </div>
+        </section>
+
+        <section id="hero-bottom-section">
+            <div class="bottom-section-container">
+                <div class="first-div">
+                    <b>Foodie</b>
+                    <p>Delicious food delivered to your door</p>
+                    <div class="icons">
+                        <i class="fa-brands fa-facebook-f"></i>
+                        <i class="fa-brands fa-instagram"></i>
+                        <i class="fa-brands fa-twitter"></i>
+                    </div>
+                </div>
+                <div class="second-div">
+                    <b>Contact</b>
+                    <p>123 Food Street</p>
+                    <p>City, State 12345</p>
+                    <p>Phone: (555) 123-4567</p>
+                    <p>Mon-Sun: 10AM - 10PM</p>
+                </div>
+                <div class="third-div">
+                    <b>Quick Links</b>
+                    <a href="menu.html">
+                        <p>Menu</p>
+                    </a>
+                    <p>About</p>
+                    <p>Contact</p>
+                    <p>Terms of Service</p>
+                    <p>Privacy Policy</p>
+                </div>
+                <div class="fouth-div">
+                    <b>Newsletter</b>
+                    <p>Subscribe to get special offers</p>
+                    <div class="email-and-btn">
+                        <label for="check"></label>
+                        <input id="check" type="email" placeholder="Your email" required>
+                        <button>Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-center">
+            Created by: <a href="https://ge.itstep.org/">IT Academy STEP Georgia</a>
+        </div>
+    </footer>
+
+    <script type="module" src="app.js"></script>
+</body>
+
+</html>

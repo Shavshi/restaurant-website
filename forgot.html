@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="forgot.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" />
+
+</head>
+
+<body>
+    <main>
+        <div id="toast" class="email-could-not-find">
+            <button class="toast-close" id="toastClose" type="button">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+            <i class="fa-solid fa-circle-exclamation toast-icon"></i>
+            <div class="toast-content">
+                <p class="toast-title" id="toastTitle"></p>
+                <p class="toast-text" id="toastText"></p>
+            </div>
+        </div>
+        <form action="">
+            <div class="top-form">
+                <h1>Forgot Password?</h1>
+                <p>Enter your email and we'll send you a reset link</p>
+            </div>
+            <div class="middle-form">
+                <div class="label-and-email">
+                    <label for="emailInput">Email</label>
+                    <input id="emailInput" type="email" placeholder="you@example.com" required>
+                </div>
+                <button id="btn" type="submit">Send Reset Link</button>
+            </div>
+            <div class="bottom-form">
+                 <a href="logIn.html">Back to Login</a>
+            </div>
+        </form>
+    </main>
+    <script src="forgot.js"></script>
+</body>
+
+</html>

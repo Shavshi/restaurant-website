@@ -1,0 +1,276 @@
+@charset "UTF-8";
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+}
+
+main {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+main .user-already-exist {
+  background-color: #FFFFFF;
+  z-index: 10;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  width: 22rem;
+  height: 4.5rem;
+  position: relative;
+  top: -14rem;
+}
+main .user-already-exist .toast-content {
+  display: flex;
+  flex-direction: column;
+  margin-left: 2rem;
+  margin-top: 0.3rem;
+}
+main .user-already-exist .toast-content #toastText {
+  font-size: 0.8rem;
+  color: #666;
+}
+main .user-already-exist .toast-content #toastTitle {
+  font-size: 0.8rem;
+}
+main .user-already-exist.return {
+  top: -8rem;
+  transition: 0.8s ease;
+}
+main .user-already-exist.back {
+  top: -14rem;
+  transition: 0.8s ease;
+}
+main .user-already-exist button {
+  border: 1px solid #e5e7eb;
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  position: absolute;
+  top: -0.5rem;
+  left: -0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+main .user-already-exist .toast-icon {
+  position: absolute;
+  top: 1.6rem;
+  font-size: 1.1rem;
+}
+main form {
+  width: 28rem;
+  height: 35.75rem;
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+main form label.weCouldNotFindTheText {
+  color: red;
+}
+main form .top-form {
+  align-items: center;
+  min-height: 6rem;
+  gap: 0.8rem;
+  padding: 1.5rem 0rem;
+  display: flex;
+  flex-direction: column;
+}
+main form .top-form h1 {
+  font-size: 1.5rem;
+}
+main form .top-form p {
+  color: #666;
+  font-size: 0.9rem;
+}
+main form .container-firstName-and-lastName {
+  width: 100%;
+  min-height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 0.8rem;
+}
+main form .container-firstName-and-lastName .lastName,
+main form .container-firstName-and-lastName .firstName {
+  gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+main form .container-firstName-and-lastName .lastName label,
+main form .container-firstName-and-lastName .firstName label {
+  display: block;
+  font-size: 0.9rem;
+}
+main form .container-firstName-and-lastName .lastName input,
+main form .container-firstName-and-lastName .firstName input {
+  height: 2.2rem;
+  width: 12rem;
+  padding: 0rem 0.8rem;
+  background-color: #f5f5f5;
+  border: 1px solid #e5e5e3;
+  border-radius: 0.5rem;
+  outline: none;
+  transition: 0.3s ease;
+}
+main form .container-firstName-and-lastName .lastName input:focus,
+main form .container-firstName-and-lastName .firstName input:focus {
+  border-color: #ff6b35;
+  box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.3);
+}
+main form .container-firstName-and-lastName .lastName input.weCouldNotFindTheText,
+main form .container-firstName-and-lastName .firstName input.weCouldNotFindTheText {
+  border-color: red;
+}
+main form .container-firstName-and-lastName .lastName input.weCouldNotFindTheText:focus,
+main form .container-firstName-and-lastName .firstName input.weCouldNotFindTheText:focus {
+  box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.3);
+}
+main form .container-firstName-and-lastName .lastName input::-moz-placeholder, main form .container-firstName-and-lastName .firstName input::-moz-placeholder {
+  font-size: 0.9rem;
+}
+main form .container-firstName-and-lastName .lastName input::placeholder,
+main form .container-firstName-and-lastName .firstName input::placeholder {
+  font-size: 0.9rem;
+}
+main form .container-email-and-password {
+  width: 100%;
+  min-height: 10rem;
+  gap: 0.6rem;
+  display: flex;
+  flex-direction: column;
+  padding: 0rem 1.5rem;
+  position: relative;
+}
+main form .container-email-and-password #forError {
+  color: red;
+  font-size: 0.8rem;
+  min-height: 1.2rem;
+  line-height: 1.2;
+}
+main form .container-email-and-password label {
+  display: block;
+  font-size: 0.9rem;
+}
+main form .container-email-and-password input {
+  height: 2.2rem;
+  width: 12rem;
+  padding: 0rem 0.8rem;
+  background-color: #f5f5f5;
+  border: 1px solid #e5e5e3;
+  border-radius: 0.5rem;
+  outline: none;
+  transition: 0.3s ease;
+}
+main form .container-email-and-password input:focus {
+  border-color: #ff6b35;
+  box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.3);
+}
+main form .container-email-and-password input.weCouldNotFindTheText {
+  border-color: red;
+}
+main form .container-email-and-password input.weCouldNotFindTheText:focus {
+  box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.3);
+}
+main form .container-email-and-password input {
+  width: 25rem;
+}
+main form .container-email-and-password ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: #666;
+  list-style: none;
+  padding: 0.5rem 0rem;
+}
+main form .container-email-and-password ul li {
+  font-size: 0.75rem;
+}
+main form .container-email-and-password ul li::before {
+  content: "•";
+  margin-right: 0.4rem;
+}
+main form .container-email-and-password #passwordError {
+  color: red;
+  font-size: 0.85rem;
+  min-height: 1.2rem;
+}
+main form .container-email-and-password .fa-eye {
+  position: absolute;
+  right: 2rem;
+  top: 6.8rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+main form .container-email-and-password .fa-eye.disappear {
+  display: none;
+}
+main form .container-email-and-password .fa-eye-slash {
+  position: absolute;
+  right: 2rem;
+  top: 6.8rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  display: none;
+}
+main form .container-email-and-password .fa-eye-slash.appear {
+  display: block;
+}
+main form .bottom-form-button button {
+  background-color: #ff6b35;
+  color: #FFFFFF;
+  border-radius: 5px;
+  border: none;
+  width: 25rem;
+  height: 2.3rem;
+  margin-left: 1.5rem;
+  margin-top: 0.7rem;
+}
+main form .bottom-form-button button:hover {
+  background-color: #ff7a00;
+  cursor: pointer;
+}
+main form .bottom-form-button button {
+  transition: 0.3s ease;
+}
+main form .bottom-form-button button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+main form .bottom-form-button .already-have-an-account {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  height: 4rem;
+}
+main form .bottom-form-button .already-have-an-account #alreadyHaveAnAccount {
+  color: #666;
+  font-size: 0.9rem;
+}
+main form .bottom-form-button .already-have-an-account a {
+  text-decoration: none;
+}
+main form .bottom-form-button .already-have-an-account a #login {
+  color: #ff6b35;
+  cursor: pointer;
+}/*# sourceMappingURL=signUp.css.map */

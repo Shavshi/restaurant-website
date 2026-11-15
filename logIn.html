@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" />
+</head>
+
+<body>
+    <main>
+        <div id="toast" class="login-error">
+            <button class="toast-close" id="toastClose" type="button">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <i id="toastIcon" class="fa-solid fa-circle-exclamation toast-icon"></i>
+            <i id="toastSuccess" class="fa-solid fa-circle-check"></i>
+            <div class="toast-content">
+                <p class="toast-title" id="toastTitle"></p>
+                <p class="toast-text" id="toastText"></p>
+            </div>
+        </div>
+        <form action="index.html">
+            <div class="top-form">
+                <h1>Welcome Back</h1>
+                <p>Sign in to your account</p>
+            </div>
+            <div class="middle-form">
+                <label for="email">Email</label>
+                <input id="email" type="email" placeholder="you@example.com" required>
+
+                <label for="password">Password</label>
+                <input id="password" type="password" placeholder="••••••••" required>
+
+                <i id="fa-eye" class="fa-regular fa-eye"></i>
+                <i id="fa-eye-slash" class="fa-regular fa-eye-slash"></i>
+            </div>
+            <div class="remember-me-and-forgot-password">
+                <div class="remember-me">
+                    <input id="checkBox" type="checkbox">
+                    <i id="fa-check" class="fa-solid fa-check"></i>
+                    <label for="checkBox">Remember me</label>
+                </div>
+                <a href="forgot.html">Forgot password?</a>
+            </div>
+            <div class="bottom-form">
+                   <button id="logIn" type="submit">Log in</button>
+                   <div class="dont-have-an-account">
+                       <p>Don't have an account</p>
+                       <a href="signUp.html">Sign up</a>
+                   </div>
+            </div>
+        </form>
+    </main>
+    <script type="module" src="login.js"></script>
+</body>
+
+</html>
